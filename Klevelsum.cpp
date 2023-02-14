@@ -11,23 +11,23 @@ struct Node{
     }
 };
 int levelorder(Node* n,int l){
-    int sum=0;
     if(n==NULL){
         return 0;
     }
     if(l==1){
-        sum=sum+n->val;
-        return sum;
+        return n->val;
     }
     else{
-        return sum+ levelorder(n->left,l-1)+ levelorder(n->right,l-1);
+        return levelorder(n->left,l-1)+ levelorder(n->right,l-1);
     }
 }
 int main() {
     Node* n= new Node(2);
     n->right=new Node(3);
     n->left=new Node(4);
-    int s=levelorder(n,2);
+    n->right->left=new Node(5);
+    n->left->left=new Node(6);
+    int s=levelorder(n,3);
     cout<<s;
 
 }
