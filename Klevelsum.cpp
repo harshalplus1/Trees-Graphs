@@ -12,6 +12,9 @@ struct Node{
 };
 int levelorder(Node* n,int l){
     int sum=0;
+    if(n==NULL){
+        return 0;
+    }
     if(l==1){
         sum=sum+n->val;
         return sum;
